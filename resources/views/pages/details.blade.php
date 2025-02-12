@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<br>
+<br>
     <div class="container">
         <h1 class="mb-3">✏️ Edit Tugas</h1>
 
@@ -35,10 +37,6 @@
                         ✅ Tandai sebagai selesai
                     </label>
                 </div>
-                
-                <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning">
-                    ✏️ Edit Tugas
-                </a>
 
                 <div class="d-right gap-2">
                     <button type="submit" class="btn btn-success">

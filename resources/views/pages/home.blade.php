@@ -60,7 +60,7 @@
                                             <form action="{{ route('tasks.complete', $task->id) }}" method="POST">
                                                 @csrf
                                                 @method('PATCH')
-                                                <button type="submit" class="btn btn-sm bg-warning w-100">
+                                                <button type="submit" class="btn btn-sm bg-info w-100">
                                                     <span class="d-flex align-items-center justify-content-center">
                                                         <i class="bi bi-check fs-5"></i>
                                                         Selesai
