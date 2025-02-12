@@ -31,10 +31,10 @@
                                     <div class="card-header">
                                         <div class="d-flex align-items-center justify-content-between">
                                             <div class="d-flex flex-column justify-content-center gap-2">
-                                                <p
+                                                <a href="{{ route('task.show', $task->id) }}"
                                                     class="fw-bold lh-1 m-0 {{ $task->is_completed ? 'text-decoration-line-through' : '' }}">
                                                     {{ $task->name }}
-                                                </p>
+                                                </a>
                                                 <span class="badge text-bg-{{ $task->priorityClass }} badge-pill"
                                                     style="width: fit-content">
                                                     {{ $task->priority }}
@@ -60,7 +60,7 @@
                                             <form action="{{ route('tasks.complete', $task->id) }}" method="POST">
                                                 @csrf
                                                 @method('PATCH')
-                                                <button type="submit" class="btn btn-sm btn-primary w-100">
+                                                <button type="submit" class="btn btn-sm bg-warning w-100">
                                                     <span class="d-flex align-items-center justify-content-center">
                                                         <i class="bi bi-check fs-5"></i>
                                                         Selesai
