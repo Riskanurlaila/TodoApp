@@ -40,6 +40,11 @@
                                                     {{ $task->priority }}
                                                 </span>
                                             </div>
+                                              {{-- fitur edit --}}
+                                                <button type="button" class="btn btn-sm btn-warning" onclick="editTask({{ $task->id }})">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </button>
+                                                </span>
                                             <form action="{{ route('tasks.destroy', $task->id) }}" method="POST"
                                                 style="display: inline;">
                                                 @csrf

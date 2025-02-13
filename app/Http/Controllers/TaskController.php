@@ -19,33 +19,6 @@ class TaskController extends Controller
         return view('pages.home', $data);
     }
 
-    public function edit($id)
-    {
-        $task = Task::findOrFail($id);
-        $title = "Edit Tugas - " . $task->name; // Menambahkan variabel $title
-        return view('pages.edit', compact('task', 'title'));
-    }
-    
-            public function update(Request $request, $id)
-        {
-            $request->validate([
-                'name' => 'required|max:100',
-                'description' => 'required|max:255',
-                'priority' => 'required|in:low,medium,high',
-                'is_completed' => 'nullable|boolean'
-            ]);
-
-            $task = Task::findOrFail($id);
-            $task->update([
-                'name' => $request->name,
-                'description' => $request->description,
-                'priority' => $request->priority,
-                'is_completed' => $request->has('is_completed') ? true : false
-            ]);
-
-            return redirect()->route('tasks.show', $task->id)->with('success', 'Tugas berhasil diperbarui!');
-        }
-
     public function store(Request $request) {
         $request->validate([
             'name' => 'required|max:100',
@@ -88,5 +61,28 @@ class TaskController extends Controller
         ];
 
         return view('pages.details', $data);
+    }
+
+    // fitur edit
+    public function edit($id) {
+        $task = Task::findOrFail($id);
+        return response()->json($task);
+    }
+    
+    public function update(Request $request, $id) {
+        $request->validate([
+            'name' => 'required|max:100',
+            'description' => 'required|max:100',
+            'priority' => 'required|in:low,medium,high',
+        ]);
+    
+        $task = Task::findOrFail($id);
+        $task->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'priority' => $request->priority
+        ]);
+    
+        return redirect()->back();
     }
 }
