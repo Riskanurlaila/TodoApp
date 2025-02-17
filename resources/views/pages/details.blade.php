@@ -3,8 +3,10 @@
 @section('content')
 <br>
 <br>
+<br>
+<br>
     <div class="container">
-        <h1 class="mb-3">✏️ Edit Tugas</h1>
+        <h1 class="mb-3">Details</h1>
 
         
         <div class="card shadow p-4">
@@ -30,24 +32,8 @@
                         <option value="high" {{ $task->priority == 'high' ? 'selected' : '' }}>🔴 High</option>
                     </select>
                 </div>
-
-                <div class="mb-3">
-                    <label class="form-check-label fw-bold">
-                        <input type="checkbox" name="status" value="1" {{ $task->status ? 'checked' : '' }}>
-                        ✅ Tandai sebagai selesai
-                    </label>
-                </div>
-
-                <div class="d-right gap-2">
-                    <button type="submit" class="btn btn-success">
-                        Simpan Perubahan
-                    </button>
-                    <a href="{{ route('tasks.show', $task->id) }}" class="btn btn-secondary">
-                        ❌ Batal
-                    </a>
-                </div>
                 
-            </form>
+         </form>
         </div>
     </div>
 @endsection
