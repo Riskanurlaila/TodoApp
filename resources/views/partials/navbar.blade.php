@@ -18,7 +18,7 @@
 
                 <!-- Avatar dengan Efek Hover -->
                 <div class="profile-avatar">
-                    <img src="Riska_Nurlaila.jpg" alt="Profil" class="rounded-circle"> <!-- Gambar profil pengguna -->
+                    <img src="{{ asset('image/Riska_Nurlaila.JPG') }}" alt="Profil" class="rounded-circle">
                 </div>
 
                 <span class="fw-semibold ms-2">Riska Nurlaila</span> <!-- Nama pengguna -->
